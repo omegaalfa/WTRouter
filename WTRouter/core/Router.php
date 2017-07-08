@@ -118,9 +118,10 @@ class Router
      */
     private function isValidPattern($pattern)
     {
+        $this->url =  explode('?', $this->getUrl())[0];
         $pattern = preg_replace('/:\w+/', '(\w+)', $pattern);
         $this->pattern = '/^' . str_replace('/', '\/', $pattern) . '$/';
-        return preg_match($this->pattern, $this->getUrl());
+        return preg_match($this->pattern, $this->url);
 
     }
 
@@ -141,12 +142,12 @@ class Router
     public function run()
     {
 
-        if($this->routes == null ? include __DIR__ .'/../app/Views/404.php' : $this->routes) ;
+        if($this->routes == null ? restore_error_handler() : $this->routes) ;
 
         if($this->routes != null){
             foreach ($this->routes as $pattern => $callback) {
 
-                if (preg_match($pattern, $this->getUrl(), $params)) {
+                if (preg_match($pattern, $this->url, $params)) {
                     array_shift($params);
                     return call_user_func_array($callback, array_values($params));
                 }
