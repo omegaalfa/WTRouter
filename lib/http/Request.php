@@ -44,8 +44,6 @@ class Request
         $url = filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_URL);
         if (strlen($url) >= 8) {
             $url = substr(strstr($url, '/public_html/'), 12);
-        } else {
-            $url = $url;
         }
         $url = trim($url);
         return $url;
