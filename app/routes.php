@@ -4,7 +4,6 @@ use Lib\http\Request;
 use Core\Router;
 use App\Controller;
 
-//require_once 'controllers/HomeController.php';
 
 $request = new Request();
 $app = new Router($request);
