@@ -16,6 +16,7 @@ class Request
     const METHOD_OPTIONS = 'OPTIONS';
     const METHOD_OVERRIDE = '_METHOD';
 
+
     /**
      * Retorna o metodo atual ou GET por padrão
      * @return string
@@ -34,4 +35,19 @@ class Request
         return (isset($_SERVER['CONTENT_TYPE'])) ? $_SERVER['CONTENT_TYPE'] : null;
     }
 
+    /**
+     * Método responsável por retornar a urm amigável
+     * @return string
+     */
+    public function getUrl()
+    {
+        $url = filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_URL);
+        if (strlen($url) >= 8) {
+            $url = substr(strstr($url, '/public_html/'), 12);
+        } else {
+            $url = $url;
+        }
+        $url = trim($url);
+        return $url;
+    }
 }

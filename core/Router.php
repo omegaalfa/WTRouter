@@ -36,6 +36,7 @@ class Router
     public function __construct(Request $request)
     {
         $this->request = $request;
+        $this->url = $request->getUrl();
     }
 
     /**
@@ -44,22 +45,6 @@ class Router
      */
     protected $requestMethods = array('GET', 'POST', 'PUT', 'DELETE');
 
-
-    /**
-     * Método responsável por retornar a urm amigável
-     * @return string
-     */
-    public function getUrl()
-    {
-        $this->url = $_SERVER['REQUEST_URI'];
-        if (strlen($this->url) >= 8) {
-            $this->url = substr(strstr($_SERVER['REQUEST_URI'], '/public_html/'), 12);
-        } else {
-            $this->url = $_SERVER['REQUEST_URI'];
-        }
-        $this->url = trim($this->url);
-        return $this->url;
-    }
 
     /**
      * Retorna array com tipos de requests aceitos pelo roteamento
@@ -103,7 +88,7 @@ class Router
      */
     private function dispatch(Array $routes)
     {
-        foreach ($routes as $route) {
+        foreach ($routes as $pattern => $route) {
             if ($routes['method'] == $this->request->getMethod() && $this->isValidPattern($routes['pattern'])) {
                 $this->colection($routes['calback']);
             }
@@ -118,7 +103,7 @@ class Router
      */
     private function isValidPattern($patterns)
     {
-        $this->url =  explode('?', $this->getUrl())[0];
+        $this->url =  explode('?', $this->url)[0];
         $pattern = preg_replace('/:\w+/', '(\w+)', $patterns);
         $this->pattern = '/^' . str_replace('/', '\/', $pattern) . '$/';
         return preg_match($this->pattern, $this->url);
