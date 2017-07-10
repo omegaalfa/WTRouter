@@ -2,8 +2,8 @@
 
 namespace Helpers;
 
-
-class Paths {
+class Paths 
+{
 
     /** * Retorna o diretório das views */
     public static function viewsPath()
