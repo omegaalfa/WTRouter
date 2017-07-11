@@ -1,18 +1,16 @@
 <?php
 
-use Lib\http\Request;
-use Core\Router;
-use App\Controller;
+    use Lib\http\Request;
+    use Core\Router;
+    use App\Controller;
 
+    $app = new Router(new Request());
 
-$request = new Request();
-$app = new Router($request);
-
-$app
-    ->get('/404', function () {
-        return (new Controller\HomeController())->notfound();
-    })
-    ->get('/teste2', function () {
-    echo 'chamou inicial teste 2 do WTRouter';
-    });
-$app->run();
+    $app
+        ->get('/', function () {
+            return (new Controller\HomeController())->index();
+        })
+        ->get('/teste/:id', function ($id) {
+            echo 'chamando rota com parameter : '. $id;
+        });
+    $app->run();

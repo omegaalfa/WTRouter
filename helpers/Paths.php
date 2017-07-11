@@ -1,21 +1,21 @@
 <?php
 
-namespace Helpers;
+	namespace Helpers;
 
+	class Paths
+	{
 
-class Paths {
+		/** * Retorna o diretório das views */
+		public static function viewsPath()
+		{
+			return BASE_PATH . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR;
+		}
 
-    /** * Retorna o diretório das views */
-    public static function viewsPath()
-    {
-        return BASE_PATH . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR;
-    }
-
-    /**
-     * @return string
-     */
-    public static function assetsPath()
-    {
-        return '/' . basename(dirname(__DIR__)) . '/';
-    }
-} 
+		/**
+		 * @return string
+		 */
+		public static function assetsPath()
+		{
+			return '/' . basename(dirname(__DIR__)) . '/';
+		}
+	}

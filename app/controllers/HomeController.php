@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Controller;
+	namespace App\Controller;
 
-use Helpers\Render;
+	use Helpers\Render;
 
-class HomeController
-{
+	class HomeController
+	{
+		public function index()
+		{
+			return Render::renderTemplate('home', array());
+		}
 
-    public function notfound()
-    {
-        return Render::renderTemplate('404', array());
-    }
-} 
+	}
