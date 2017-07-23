@@ -1,13 +1,15 @@
 {
     "name": "webtech/WTRouter",
-    "Description": "webtech/mvc",
+    "Description": "REST API client for PHP mvc",
     "type": "project",
+    "Lincense" : "GPL-3.0",
     "autor": {
         "name": "wesley",
         "email": "wesley.rabelo.teixeira@gmail.com"
     },
     "autoload": {
         "classmap": [
+            "core",
             "database",
             "lib",
             "helpers"
@@ -17,5 +19,8 @@
             "App\\Controller\\": "app/controllers/",
             "App\\Model\\": "app/models/"
         }
+    },
+    "require": {
+        "tcdent/php-restclient": "^0.1.6"
     }
 }

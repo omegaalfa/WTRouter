@@ -42,10 +42,6 @@ class Request
     public function getUrl()
     {
         $url = filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_URL);
-        if (strlen($url) >= 8) {
-            $url = substr(strstr($url, '/public_html/'), 12);
-        }
-        $url = trim($url);
-        return $url;
+        return trim($url);
     }
 }

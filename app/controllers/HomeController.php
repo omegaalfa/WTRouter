@@ -1,14 +1,23 @@
 <?php
 
-	namespace App\Controller;
+namespace App\Controller;
 
-	use Helpers\Render;
+use Core\Controller;
+use Event\Event;
 
-	class HomeController
-	{
-		public function index()
-		{
-			return Render::renderTemplate('home', array());
-		}
+/**
+ * Class HomeController
+ * @package App\Controller
+ */
+class HomeController extends Controller
+{
+    public function index()
+    {
+        $this->beforeRenderTemplate('', 'home', array());
 
-	}
+//        $this->afterRenderTemplate('home', array(), function(){
+//            echo 'after'.PHP_EOL;
+//        });
+    }
+
+}
