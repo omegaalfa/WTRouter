@@ -2,4 +2,4 @@
 
 <?php
 
-var_dump($dados);
+print_r($dados);

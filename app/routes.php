@@ -7,20 +7,9 @@ use App\Controller;
 
 $app = new Router(new Request());
 
-
-//$teste = $app->calback(function() {
-//    return 'chamando rota com parameter : ' ;
-//});
-
-//$imput = file_get_contents('php://input');
-//var_dump($imput) ;
-
 $app
     ->get('/', function () {
         return (new Controller\HomeController())->index();
-    })
-    ->get('/alelo', function () {
-        return (new Controller\AleloController())->submit();
     })
     ->get('/users', function () {
         return (new Controller\HomeController())->index();
