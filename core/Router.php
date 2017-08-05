@@ -130,22 +130,12 @@ class Router
     {
         if ($this->routes != null) {
             foreach ($this->routes as $pattern => $callback) {
-
                 if (preg_match($pattern, $this->url, $params)) {
                     array_shift($params);
                     return call_user_func_array($callback, array_values($params));
                 }
             }
         }
-
         return Render::renderView('404');
-    }
-
-    public function calback($function)
-    {
-        if(is_callable($function)){
-            return $function();
-        }
-        return ;
     }
 }

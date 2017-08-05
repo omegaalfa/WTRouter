@@ -4,6 +4,7 @@ use Lib\http\Request;
 use Core\Router;
 use App\Controller;
 
+
 $app = new Router(new Request());
 
 
@@ -16,6 +17,12 @@ $app = new Router(new Request());
 
 $app
     ->get('/', function () {
+        return (new Controller\HomeController())->index();
+    })
+    ->get('/alelo', function () {
+        return (new Controller\AleloController())->submit();
+    })
+    ->get('/users', function () {
         return (new Controller\HomeController())->index();
     })
     ->get('/teste/:id', function ($id) {

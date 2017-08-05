@@ -21,6 +21,7 @@
         }
     },
     "require": {
-        "tcdent/php-restclient": "^0.1.6"
+        "tcdent/php-restclient": "^0.1.6",
+        "catfan/Medoo": "^1.4"
     }
 }

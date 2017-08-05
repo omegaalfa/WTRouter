@@ -3,7 +3,8 @@
 namespace App\Controller;
 
 use Core\Controller;
-use Event\Event;
+use Core\Model;
+use Helpers\Converts;
 
 /**
  * Class HomeController
@@ -13,11 +14,16 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $this->beforeRenderTemplate('', 'home', array());
+        $data = array('nome' =>'Fulano');
+        $this->afterRender(function(){
+            return true;
+        }, 'home', array('dados' =>$data));
 
-//        $this->afterRenderTemplate('home', array(), function(){
-//            echo 'after'.PHP_EOL;
-//        });
+//        $this->beforeRender(function(){
+//            return true;
+//        },'home', array());
+
+
     }
 
 }
