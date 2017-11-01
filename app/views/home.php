@@ -2,4 +2,4 @@
 
 <?php
 
-print_r($dados);
+print_r($nome);

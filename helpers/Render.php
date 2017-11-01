@@ -21,7 +21,7 @@ trait Render
             phpErro(E_USER_ERROR, 'Not exists file: ' . $viewName, __FILE__, __LINE__);
         }
         extract($customVars);
-        return require_once Paths::viewsPath() . 'template.php';
+        return require_once Paths::viewsPath() . 'dashboard.php';
     }
 
     /**
@@ -45,7 +45,36 @@ trait Render
      * @param $data
      * @return mixed
      */
-    public function beforeRender($callback, $view, $data)
+    public function beforeRenderView($callback, $view, $data)
+    {
+        if (!is_callable($callback) or !$callback()) {
+            phpErro(E_USER_ERROR, 'Undefined function calback or return null', __FILE__, __LINE__);
+        }
+        return $this->renderView($view, $data);
+    }
+
+    /**
+     * @param $calback
+     * @param $view
+     * @param $data
+     * @return mixed
+     */
+    public function afterRenderView($calback, $view, $data)
+    {
+        $this->renderView($view, $data);
+        if (!is_callable($calback) or !$calback() ) {
+            phpErro(WS_ERROR, 'Undefined function calback or return null', __FILE__, __LINE__);
+        }
+        return $calback();
+    }
+
+    /**
+     * @param $callback
+     * @param $view
+     * @param $data
+     * @return mixed
+     */
+    public function beforeRenderViewTemplate($callback, $view, $data)
     {
         if (!is_callable($callback) or !$callback()) {
             phpErro(E_USER_ERROR, 'Undefined function calback or return null', __FILE__, __LINE__);
@@ -59,7 +88,7 @@ trait Render
      * @param $data
      * @return mixed
      */
-    public function afterRender($calback, $view, $data)
+    public function afterRenderTemplate($calback, $view, $data)
     {
         $this->renderViewTemplate($view, $data);
         if (!is_callable($calback) or !$calback() ) {

@@ -1,8 +1,8 @@
 <?php
 
-namespace core\router;
+namespace Core;
 
-use App\Lib\http\Request;
+use App\Lib\Http\Request;
 
 /**
  * Class Router

@@ -1,15 +1,15 @@
 <?php
 
-use Lib\http\Request;
-use Core\Router;
 use App\Controller;
+use App\Lib\Http\Request;
+use core\router\Router;
 
 
 $app = new Router(new Request());
 
 $app
     ->get('/', function () {
-        return (new Controller\HomeController())->index();
+        return Controller\HomeController::getInstance()->index();
     })
     ->get('/users', function () {
         return (new Controller\HomeController())->index();
