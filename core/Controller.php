@@ -2,7 +2,7 @@
 
 namespace Core;
 
-use Helpers\Render;
+use Modulos\Helpers\Render;
 
 
 /**

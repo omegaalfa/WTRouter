@@ -2,7 +2,7 @@
 
 namespace core\router;
 
-use App\Lib\http\Request;
+use Modulos\http\Request;
 
 /**
  * Class Router

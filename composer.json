@@ -9,15 +9,14 @@
     },
     "autoload": {
         "classmap": [
-            "core",
-            "helpers"
+            "core"
         ],
         "psr-4": {
             "App\\": "app/",
             "App\\Controller\\": "app/controllers/",
             "App\\Model\\": "app/models/",
-            "App\\Lib\\http\\": "app/lib/http/",
-            "App\\Lib\\Http\\HttpInterface\\": "app/lib/http/http-interface/"
+            "Modulos\\Helpers\\": "modulos/helpers/",
+            "Modulos\\Http\\": "modulos/http/"
         }
     }
 }

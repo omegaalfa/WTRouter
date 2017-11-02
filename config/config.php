@@ -4,9 +4,6 @@ define('DS', DIRECTORY_SEPARATOR);
 define('BASE_DIR', dirname(__FILE__) . DS);
 define('BASE_URL', 'http://localhost/microframe');
 
-echo BASE_PATH;
-
-
 // Tratamento de erros
 define('WS_ACCEPT', 'accept');
 define('WS_INFOR', 'infor');
