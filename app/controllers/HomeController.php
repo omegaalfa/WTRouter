@@ -14,7 +14,7 @@ class HomeController extends Controller
     public function index()
     {
         $data = array('nome' =>'Fulano');
-        $this->renderView('login', $data);
+        $this->renderView('home', $data);
 
     }
 
