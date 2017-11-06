@@ -16,9 +16,12 @@ class ComposerStaticInit663c037db8670bd16c8179489d3c6523
         array (
             'Modulos\\Http\\' => 13,
             'Modulos\\Helpers\\' => 16,
+            'Modulos\\Database\\' => 17,
+            'Modulos\\Classes\\'  => 16,
         ),
         'A' => 
         array (
+            'App\\Model\\DAO\\' => 14,
             'App\\Model\\' => 10,
             'App\\Controller\\' => 15,
             'App\\' => 4,
@@ -41,6 +44,18 @@ class ComposerStaticInit663c037db8670bd16c8179489d3c6523
         'Modulos\\Helpers\\' => 
         array (
             0 => __DIR__ . '/../..' . '/modulos/helpers',
+        ),
+        'Modulos\\Database\\' =>
+            array(
+                0 => __DIR__ . '/../..' . '/modulos/database',
+            ),
+        'Modulos\\Classes\\' =>
+            array(
+                0 => __DIR__ . '/../..' . '/modulos/classes',
+            ),
+        'App\\Model\\DAO\\' =>
+            array(
+                0 => __DIR__ . '/../..' . '/app/models/dao',
         ),
         'App\\Model\\' => 
         array (

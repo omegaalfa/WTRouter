@@ -15,7 +15,10 @@
             "App\\": "app/",
             "App\\Controller\\": "app/controllers/",
             "App\\Model\\": "app/models/",
+            "App\\Model\\DAO\\": "app/models/dao/",
             "Modulos\\Helpers\\": "modulos/helpers/",
+            "Modulos\\Classes\\": "modulos/classes/",
+            "Modulos\\Database\\": "modulos/database/",
             "Modulos\\Http\\": "modulos/http/"
         }
     }

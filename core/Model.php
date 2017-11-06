@@ -2,7 +2,8 @@
 
 namespace Core;
 
-use Lib\Medoo\Medoo;
+use Modulos\Database\PDOConnector;
+
 
 /**
  * Class Model
@@ -10,11 +11,5 @@ use Lib\Medoo\Medoo;
  */
 class Model
 {
-    /**
-     * @return Medoo
-     */
-    static function getDB()
-    {
-        return new Medoo(require '../config/database.php');
-    }
+
 } 
